@@ -36,14 +36,13 @@ This documentation covers everything from Git basics to advanced workflows:
 
 ## 🔗 Live Demo
 
-You can view the live version of this project here: **[Git Documentation Hub](https://your-username.github.io/git-docs)**  
-*(Replace with your actual GitHub Pages / Netlify / Vercel deployment link)*
+You can view the live version of this project here: **[Git Documentation Hub](https://predator792002.github.io/Git_Tech_Doc/)**  
 
 ## 🚀 Getting Started
 
 ### Prerequisites
 - A modern web browser
-- Basic understanding of command line (helpful but not required)
+- Basic understanding of the command line (helpful but not required)
 
 ### Local Development
 
@@ -57,7 +56,7 @@ git clone https://github.com/your-username/git-docs.git
 cd git-docs
 
 # Open in your preferred way:
-# Option 1: Open index.html directly in browser
+# Option 1: Open index.html directly in the browser
 open index.html
 
 # Option 2: Use a local server (recommended)
@@ -105,14 +104,14 @@ Contributions are welcome! Here's how you can help:
 
 ## 📄 License
 
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+This project is licensed under the MIT License
 
 ## 👨‍💻 Author
 
 **Your Name**
-- GitHub: [@your-username](https://github.com/your-username)
-- LinkedIn: [Your LinkedIn](https://linkedin.com/in/your-profile)
-- Email: your.email@example.com
+- GitHub: [@your-username](https://github.com/Predator792002)
+- LinkedIn: [Your LinkedIn](https://www.linkedin.com/in/aayush-gupta-568403260/)
+- Email: aayushgupta792002@gmail.com
 
 ## 🙏 Acknowledgments
 
