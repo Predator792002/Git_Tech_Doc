@@ -109,8 +109,8 @@ This project is licensed under the MIT License
 ## 👨‍💻 Author
 
 **Your Name**
-- GitHub: [@your-username](https://github.com/Predator792002)
-- LinkedIn: [Your LinkedIn](https://www.linkedin.com/in/aayush-gupta-568403260/)
+- GitHub: [@ayushGupta](https://github.com/Predator792002)
+- LinkedIn: [ayushgupta-LinkedIn](https://www.linkedin.com/in/aayush-gupta-568403260/)
 - Email: aayushgupta792002@gmail.com
 
 ## 🙏 Acknowledgments
