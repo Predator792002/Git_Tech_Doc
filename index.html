@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Git Documentation</title>
+    <link rel="stylesheet" href="styles.css">
+  </head>
+  <body>
+    <nav id="navbar">
+      <header>Git Documentation</header>
+      <ul>
+        <li><a class="nav-link" href="#What_is_Git?">What is Git?</a></li>
+        <li><a class="nav-link" href="#Installing_Git">Installing Git</a></li>
+        <li><a class="nav-link" href="#Git_Configuration">Git Configuration</a></li>
+        <li><a class="nav-link" href="#Repositories_in_Git">Repositories in Git</a></li>
+        <li><a class="nav-link" href="#Git_Workflow_Basics">Git Workflow Basics</a></li>
+        <li><a class="nav-link" href="#Viewing_History_and_Changes">Viewing History and Changes</a></li>
+        <li><a class="nav-link" href="#Branching_and_Merging">Branching and Merging</a></li>
+        <li><a class="nav-link" href="#Synchronizing_with_Remote_Repositories">Synchronizing with Remote Repositories</a></li>
+        <li><a class="nav-link" href="#Undoing_Mistakes">Undoing Mistakes</a></li>
+        <li><a class="nav-link" href="#Using_.gitignore">Using .gitignore</a></li>
+        <li><a class="nav-link" href="#Cleaning_Untracked_Files">Cleaning Untracked Files</a></li>
+        <li><a class="nav-link" href="#Tags_and_Releases">Tags and Releases</a></li>
+        <li><a class="nav-link" href="#Git_Aliases">Git Aliases</a></li>
+        <li><a class="nav-link" href="#Git_Internals_(Advanced)">Git Internals (Advanced)</a></li>
+        <li><a class="nav-link" href="#Common_Git_Workflows">Common Git Workflows</a></li>
+        <li><a class="nav-link" href="#Troubleshooting_and_Recovery">Troubleshooting and Recovery</a></li>
+        <li><a class="nav-link" href="#Git_Hosting_Platforms">Git Hosting Platforms</a></li>
+        <li><a class="nav-link" href="#Further_Learning_Resources">Further Learning Resources</a></li>
+      </ul>
+    </nav>
+    <main id="main-doc">
+      <section id="What_is_Git?" class="main-section">
+        <header>What is Git?</header>
+        <article>
+          <p>Git is a distributed version control system designed to handle everything from small to very large projects with speed and efficiency. It lets multiple developers work on the same project simultaneously without stepping on each other's changes.</p>
+          <p>Key Benefits:</p>
+          <ul>
+            <li>Tracks every change made to your code</li>
+            <li>Supports non-linear development via branches and merges</li>
+            <li>Enables local repositories, allowing offline work</li>
+          </ul>
+        </article>
+      </section>
+      <section id="Installing_Git" class="main-section">
+        <header>Installing Git</header>
+        <article>
+          <p>Git can be installed on Linux, macOS, or Windows.</p>
+          <p><span class="code-parent">Linux (Debian/Ubuntu):</span></p>
+          <code>sudo apt update<br>
+sudo apt install git</code>
+          <p><span class="code-parent">macOS (Homebrew):</span></p>
+          <code>brew install git</code>
+          <p><span class="bold-char">Windows</span>: Download the installer from git-scm.com and follow the installation wizard.</p>
+          <p><span class="code-parent">Verify Installation:</span></p>
+          <code>git --version</code>
+          <p>This prints the installed Git version, confirming that Git is available.</p>
+        </article>
+      </section>
+      <section id="Git_Configuration" class="main-section">
+        <header>Git Configuration</header>
+        <article>
+          <p>Initial Git configuration is crucial for commit attribution and default behavior.</p>
+          <p><span class="code-parent">Set Username and Email:</span></p>
+          <code>git config --global user.name "Your Name"<br>
+git config --global user.email "you@example.com"</code>
+          <p>Used to tag each commit with author information.</p>
+          <p><span class="code-parent">Set Default Editor:</span></p>
+          <code>git config --global core.editor nano</code>
+          <p>This sets the default text editor for writing commit messages.</p>
+          <p><span class="code-parent">Enable Colored Output:</span></p>
+          <code>git config --global color.ui auto</code>
+          <p>Improves readability of Git output in the terminal.</p>
+          <p><span class="code-parent">Enable Credential Caching (Optional):</span></p>
+          <code>git config --global credential.helper cache</code>
+          <p>Caches your credentials for a limited time.</p>
+          <p><span class="code-parent">Check Configuration:</span></p>
+          <code>git config --list</code>
+          <p>Shows all current Git configuration values.</p>
+        </article>
+      </section>
+      <section id="Repositories_in_Git" class="main-section">
+        <header>Repositories in Git</header>
+        <article>
+          <p>Repositories are the core working unit of Git. A Git repository tracks and saves versions of your project.</p>
+          <p><span class="code-parent">Initialize a New Repository:</span></p>
+          <code>git init</code>
+          <p>Creates a new .git directory to start version tracking.</p>
+          <p><span class="code-parent">Clone an Existing Repository:</span></p>
+          <code>git clone https://github.com/user/repo.git</code>
+          <p>Copies an existing remote repository into a new local directory.</p>
+          <p><span class="code-parent">Check Repository Status:</span></p>
+          <code>git status</code>
+          <p>Shows the current state of the working directory and staging area.</p>
+        </article>
+      </section>
+      <section id="Git_Workflow_Basics" class="main-section">
+        <header>Git Workflow Basics</header>
+        <article>
+          <p>Git's core workflow involves three main states: working directory, staging area, and commit history.</p>
+          <p><span class="code-parent">Stage Changes:</span></p>
+          <code>git add filename</code>
+          <p>Moves changes from the working directory to the staging area.</p>
+          <p><span class="code-parent">Commit Changes:</span></p>
+          <code>git commit -m "Add feature X"</code>
+          <p>Saves staged changes with a message describing the commit.</p>
+          <p><span class="code-parent">Push to Remote:</span></p>
+          <code>git push origin main</code>
+          <p>Uploads commits to a remote repository on the specified branch.</p>
+          <p><span class="code-parent">Pull Remote Changes:</span></p>
+          <code>git pull origin main</code>
+          <p>Fetches and merges changes from a remote branch into the current branch.</p>
+          <p><span class="code-parent"></span>Check Remote Connection:</p>
+          <code>git remote -v</code>
+          <p>Displays the associated remotes.</p>
+        </article>
+      </section>
+      <section id="Viewing_History_and_Changes" class="main-section">
+        <header>Viewing History and Changes</header>
+        <article>
+          <p>Git allows you to inspect historical changes and review diffs.</p>
+          <p><span class="code-parent">View Commit Log:</span></p>
+          <code>git log</code>
+          <p>Displays the commit history in chronological order.</p>
+          <p><span class="code-parent">Compact Log:</span></p>
+          <code>git log --oneline</code>
+          <p>Shows commit hashes and messages on a single line.</p>
+          <p><span class="code-parent">View Differences:</span></p>
+          <code>git diff</code>
+          <p>Compares changes in the working directory against the staging area.</p>
+          <p><span class="code-parent">Compare with Last Commit:</span></p>
+          <code>git diff HEAD</code>
+          <p>Shows the changes between the working directory and the latest commit.</p>
+          <p><span class="code-parent">View a File's History:</span></p>
+          <code>git log filename</code>
+          <p>Lists all commits that changed a specific file.</p>
+        </article>
+      </section>
+      <section id="Branching_and_Merging" class="main-section">
+        <header>Branching and Merging</header>
+        <article>
+          <p>Branches enable isolated development of features and bug fixes.</p>
+          <p><span class="code-parent">Create a Branch:</span></p>
+          <code>git branch new-feature</code>
+          <p>Creates a new branch off the current branch.</p>
+          <p><span class="code-parent">Switch Branch:</span></p>
+          <code>git checkout new-feature</code>
+          <p>Moves the HEAD pointer to the specified branch.</p>
+          <p><span class="code-parent">Create and Switch Branch:</span></p>
+          <code>git checkout -b new-feature</code>
+          <p>Creates and checks out the new branch in one step.</p>
+          <p><span class="code-parent">Merge Branch:</span></p>
+          <code>git merge new-feature</code>
+          <p>Integrates changes from the branch into the current branch.</p>
+          <p><span class="code-parent">List All Branches:</span></p>
+          <code>git branch</code>
+          <p>Lists all local branches, marking the current one with an asterisk.</p>
+          <p><span class="code-parent">Delete a Branch:</span></p>
+          <code>git branch -d branch-name</code>
+          <p>Deletes a local branch after it has been merged.</p>
+        </article>
+      </section>
+      <section id="Synchronizing_with_Remote_Repositories" class="main-section">
+        <header>Synchronizing with Remote Repositories</header>
+        <article>
+          <p>Git uses remotes to connect your local repository to a hosted version.</p>
+          <p><span class="code-parent">Add a Remote:</span></p>
+          <code>git remote add origin https://github.com/user/repo.git</code>
+          <p>Connects your local repository to a remote one.</p>
+          <p><span class="code-parent">Push Changes:</span></p>
+          <code>git push origin branch-name</code>
+          <p>Sends commits to the corresponding branch on the remote.</p>
+          <p><span class="code-parent">Pull Changes:</span></p>
+          <code>git pull origin branch-name</code>
+          <p>Fetches and merges remote updates into your current branch.</p>
+          <p><span class="code-parent">Fetch Only:</span></p>
+          <code>git fetch origin</code>
+          <p>Downloads remote changes but doesn't merge them.</p>
+          <p><span class="code-parent">List Remotes:</span></p>
+          <code>git remote -v</code>
+          <p>Shows the remote URLs associated with your repository.</p>
+        </article>
+      </section>
+      <section id="Undoing_Mistakes" class="main-section">
+        <header>Undoing Mistakes</header>
+        <article>
+          <p>Git provides tools to undo, fix, or recover from mistakes.</p>
+          <p><span class="code-parent">Unstage a File:</span></p>
+          <code>git reset filename</code>
+          <p>Removes the file from staging.</p>
+          <p><span class="code-parent">Amend the Last Commit:</span></p>
+          <code>git commit --amend</code>
+          <p>Modifies the most recent commit.</p>
+          <p><span class="code-parent">Revert a Commit:</span></p>
+          <code>git revert &lt;commit-hash&gt;</code>
+          <p>Creates a new commit that undoes changes from a specific commit.</p>
+          <p><span class="code-parent">Reset to a Previous Commit:</span></p>
+          <code>git reset --hard &lt;commit-hash&gt;</code>
+          <p>Resets your working directory and history to a specific commit.</p>
+          <p><span class="code-parent">Checkout a File from a Commit:</span></p>
+          <code>git checkout HEAD~1 filename</code>
+          <p>Restores the file version from the previous commit.</p>
+        </article>
+      </section>
+      <section id="Using_.gitignore" class="main-section">
+        <header>Using .gitignore</header>
+        <article>
+          <p>The <span class="bold-char">.gitignore</span> file prevents specified files from being tracked by Git.</p>
+          <p><span class="code-parent">Create a .gitignore File:</span></p>
+          <code>node_modules/<br>
+*.log<br>
+.env</code>
+          <p>Patterns used to exclude directories and file types.</p>
+          <p><span class="code-parent">Check Ignored Files:</span></p>
+          <code>git status --ignored</code>
+          <p>Displays all ignored files.</p>
+        </article>
+      </section>
+      <section id="Cleaning_Untracked_Files" class="main-section">
+        <header>Cleaning Untracked Files</header>
+        <article>
+          <p>Use Git clean to remove files not under version control.</p>
+          <p><span class="code-parent">Dry Run:</span></p>
+          <code>git clean -n</code>
+          <p>Lists untracked files that would be removed.</p>
+          <p><span class="code-parent">Remove Untracked Files:</span></p>
+          <code>git clean -f</code>
+          <p>Deletes untracked files.</p>
+          <p><span class="code-parent">Remove Untracked Directories:</span></p>
+          <code>git clean -fd</code>
+          <p>Deletes untracked files and directories.</p>
+          
+        </article>
+      </section>
+      <section id="Tags_and_Releases" class="main-section">
+        <header>Tags and Releases</header>
+        <article>
+          <p>Tags are used to mark important points in history.</p>
+          <p><span class="code-parent">Create a Tag:</span></p>
+          <code>git tag v1.0.0</code>
+          <p>Tags the current commit.</p>
+          <p><span class="code-parent">Create an Annotated Tag:</span></p>
+          <code>git tag -a v1.0.0 -m "Initial release"</code>
+          <p><span class="code-parent">List Tags:</span></p>
+          <code>git tag</code>
+          <p><span class="code-parent">Push Tags to Remote:</span></p>
+          <code>git push origin --tags</code>
+        </article>
+      </section>
+      <section id="Git_Aliases" class="main-section">
+        <header>Git Aliases</header>
+        <article>
+          <p>Aliases save time by creating shortcuts for frequently used commands.</p>
+          <p><span class="code-parent">Create Alias:</span></p>
+          <code>git config --global alias.st status</code>
+          <p>Now git st is equivalent to git status.</p>
+          <p><span class="code-parent">List All Aliases:</span></p>
+          <code>git config --get-regexp alias</code>
+        </article>
+      </section>
+      <section id="Git_Internals_(Advanced)" class="main-section">
+        <header>Git Internals (Advanced)</header>
+        <article>
+          <p>Understanding how Git works internally helps advanced users troubleshoot issues.</p>
+          <p><span class="code-parent">Git Objects:</span></p>
+          <ul>
+            <li>Blobs: File data</li>
+            <li>Trees: Directory structure</li>
+            <li>Commits: Snapshots</li>
+          </ul>
+          <p><span class="code-parent">View Git Directory:</span></p>
+          <code>ls .git</code>
+          <p><span class="code-parent">Inspect Object Types:</span></p>
+          <code>git cat-file -t <hash></code>
+        </article>
+      </section>
+      <section id="Common_Git_Workflows" class="main-section">
+        <header>Common Git Workflows</header>
+        <article>
+          <p>Different Git workflows support team collaboration and release management.</p>
+          <p><span class="bold-char">Centralized Workflow:</span> Single main branch, suitable for small teams.</p>
+          <p><span class="bold-char">Feature Branch Workflow:</span> Create a new branch for each feature.</p>
+          <p><span class="bold-char">Gitflow Workflow:</span> Structured branching model with develop, release, and hotfix branches.</p>
+          <p><span class="bold-char">Forking Workflow:</span> Used in open source; contributors fork a repo and create pull requests.</p>
+        </article>
+      </section>
+      <section id="Troubleshooting_and_Recovery" class="main-section">
+        <header>Troubleshooting and Recovery</header>
+        <article>
+          <p>Git provides logs and tools to recover lost work.</p>
+          <p><span class="code-parent">View Command History:</span></p>
+          <code>git reflog</code>
+          <p>Tracks branch history and HEAD changes</p>
+          <p><span class="code-parent">.</span>Recover a Commit:</p>
+          <code>git checkout &lt;commit-hash&gt;</code>
+          <p>Fix Merge Conflicts:</p>
+          <p><span class="code-parent">Resolve manually, then:</span></p>
+          <code>git add .<br>
+git commit</code>
+        </article>
+      </section>
+      <section id="Git_Hosting_Platforms" class="main-section">
+        <header>Git Hosting Platforms</header>
+        <article>
+          <p>Platforms offer collaboration and CI/CD tools.</p>
+          <p><span class="bold-char">GitHub: </span>Pull requests, Actions, Issues.</p>
+          <p><span class="bold-char">GitLab: </span>Built-in CI/CD, free private repos.</p>
+          <p><span class="bold-char">Bitbucket: </span>Atlassian integration, pipelines.</p>
+          <p><span class="bold-char">Others: </span>SourceForge, Codeberg.</p>
+        </article>
+      </section>
+      <section id="Further_Learning_Resources" class="main-section">
+        <header>Further Learning Resources</header>
+        <article>
+          <ul>
+            <li><a href="https://git-scm.com/book/en/v2">Pro Git Book</a></li>
+            <li><a href="https://docs.github.com/en">GitHub Docs</a></li>
+            <li>Practice via open source contribution</li>
+          </ul>
+        </article>
+      </section>
+    </main>
+  </body>
+</html>
+
